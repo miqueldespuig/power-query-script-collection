@@ -36,9 +36,15 @@ Variables:
 Returns:
 * A table with the 4 column hiearchy converted to a 3 column hierarchy.
 
+Pending Improvements:
+* Does not carry original types through the algorithm.
+* Handle value proportions between parent-child relationships.
+
 ## fxFlatten.pq
 
 > Flattens from rows in a 3 column hierarchy to as many columns as levels present.
+
+This function flattens a table based on Chapter 10 Recursive hierarchies and bridges from [Star Schema: Complete Reference by Chris Adamson](http://chrisadamson.com/star-schema-complete-reference)
 
 Variables:
 * **HierarchyTable** as *table*, A table with three columns that represent a hierarchy.
@@ -55,6 +61,39 @@ A table with the columns:
 * **NodeDepth**, *Integer* indicating the depth level of the current node.
 * **Path**, *Text* string representing the path from the root node to the current node.
 * **IsLeaf**, *Boolean* value indicating if the current node is at the end of the hierarchy.
+
+Pendint improvements:
+* Does not carry original types through the algorithm.
+* Handle value proportions between parent-child relationships.
+
+## fxBridge.pq
+
+> Generates a bridge table that can be used between fact table and dimension table.
+
+This function defines a bridge table based on: Chapter 10 Recursive hierarchies and bridges from [Star Schema: Complete Reference by Chris Adamson](http://chrisadamson.com/star-schema-complete-reference)
+
+The basic definition of it is:
+* Each row captures a relationship between a pair of rows.
+* Bridge has two foreign keys that refer to the dimension. One that represents the *higher level entity*, and another that represents the *lower level entity*.
+* A bridge not only contains rows for direct relationships. It also contains rows that represent indirect relationships where node are more than one level apart from each other.
+
+Variables:
+* **HierarchyTable** as *table*, A table with three columns that represent a hierarchy.
+* **NodeKey** as *text*, A text with the *name of the column* which holds node key values.
+* **NodeName** as *text*, A text with the *name of the column* which holds de node name values.
+* **ParentKey** as *text*, A text with the *name of the column* which holds parent key values.
+
+Returns:
+A table with the columns
+* **Predecessor**, A column that identifies the superior key in a node relationship.
+* **Successor**, A column that identifies the subordinate key in a node relationship.
+* **Levels Removed**, A column that quantifies the level distance between the two node relationship.
+
+Pending improvements:
+* Currently does not handle recursive hierarchies.
+* Multi-parent is handled as if all nodes that have multiple parents have them the same number of levels away. If its not the case the results will be incorrect.
+* Does not carry original types through the algorithm.
+* Handle value proportions between parent-child relationships.
 
 # How To Use
 
