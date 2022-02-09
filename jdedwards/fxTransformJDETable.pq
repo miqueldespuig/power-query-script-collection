@@ -37,9 +37,8 @@ let
                 fxTextTransform =
                     (_ as text) =>
                         let
-                            TrimText = Text.TrimEnd(_),
-                            ReplaceSpaces = Text.Replace(TrimText, " ", "#"),
-                            Clean = Text.Clean(ReplaceSpaces)
+                            TrimText = Text.Trim(_),
+                            Clean = Text.Clean(TrimText)
                         in
                             Clean,
                 fxJul2Greg =
@@ -143,7 +142,7 @@ let
         meta
         [
             Documentation.Author = "Miquel Despuig",
-            Documentation.Version = "0.0.0", //MajorVersion|MinorVersion|Revision
+            Documentation.Version = "0.0.1", //MajorVersion|MinorVersion|Revision
             Documentation.Name = "fxTransformJDETable",
             Documentation.LongDescription = "Given a JD Edwards Data Dictionary encoded table <code>SrcTable</code> and a specification table <code>TransformTable</code> applies the necessary data transformations to translate to a human readable table."
         ],
