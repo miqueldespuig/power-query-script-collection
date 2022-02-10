@@ -1,9 +1,5 @@
-/* 
-fxGreg2Jul, takes a date in gregorian format and converts it into JD Edwards Julian integer format
-*/
 let
-    g2j =
-        (gregdate as date) as number =>
+  Function = (gregdate as date) as number =>
             let
                 juliandate =
                     Number.From(
@@ -17,21 +13,22 @@ let
                     - 1900000
             in
                 juliandate,
-    //DOCUMENTATION
-    g2jType =
-        type function (gregdate as
+  // DOCUMENTATION
+  FunctionType = type function (gregdate as
             (
                 type date
                 meta
                 [
-                    Documentation.FieldCaption = "Gregorian Date",
+                    Documentation.FieldCaption = "Date",
                     Documentation.LongDescripcion = "The value in type date of a gregorian date"
                 ]
             )) as date
         meta
         [
-            Documentation.Name = "Gregorian Date To Julian Date",
+            Documentation.Author = "Miquel Despuig",
+            Documentation.Version = "1.0.1", //MajorVersion|MinorVersion|Revision
+            Documentation.Name = "fxTransformJDETable",
             Documentation.LongDescription = "Given gregorian calendar date converts it to a JD Edwards julian date format"
         ]
 in
-    Value.ReplaceType(g2j, g2jType)
+  Value.ReplaceType(Function, FunctionType)
