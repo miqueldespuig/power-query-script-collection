@@ -1,5 +1,5 @@
 let
-  Function = (gregdate as date) as number =>
+    Function = (gregdate as date) as number =>
             let
                 juliandate =
                     Number.From(
@@ -13,8 +13,8 @@ let
                     - 1900000
             in
                 juliandate,
-  // DOCUMENTATION
-  FunctionType = type function (gregdate as
+    // DOCUMENTATION
+    FunctionType = type function (gregdate as
             (
                 type date
                 meta
@@ -29,6 +29,8 @@ let
             Documentation.Version = "1.0.1", //MajorVersion|MinorVersion|Revision
             Documentation.Name = "fxTransformJDETable",
             Documentation.LongDescription = "Given gregorian calendar date converts it to a JD Edwards julian date format"
-        ]
+        ],
+    fxJul2Greg = Value.ReplaceType(Function, FunctionType)
 in
-  Value.ReplaceType(Function, FunctionType)
+    fxJul2Greg
+  
