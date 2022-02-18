@@ -44,7 +44,7 @@ let
                 fxJul2Greg =
                     (julian as number) as date =>
                         let
-                            daycount = Number.Mod(1900000 + julian, 1000),
+                            daycount = Number.Mod(1900000 + julian, 1000) - 1,
                             year = Number.RoundDown((1900000 + julian) / 1000),
                             greg1 = #date(year, 1, 1),
                             greg = Date.AddDays(greg1, daycount)
