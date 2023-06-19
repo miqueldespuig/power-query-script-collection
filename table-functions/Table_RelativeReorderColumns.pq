@@ -24,7 +24,7 @@ let
             Documentation.Author = "Ben Gribaudo",
             Documentation.Version = "1",
             Documentation.Source = "https://bengribaudo.com/blog/2021/10/04/6289/resilient-relative-column-reordering",
-            Documentation.Name = "TableRelativeReorderColumns",
+            Documentation.Name = "Table_RelativeReorderColumns",
             Documentation.LongDescription = "Returns a table from the input <code>table</code>, with the columns in <code>columnsToOrderLeft</code> appearing leftmost in the order given and the columns in <code>columnsToOrderRight</code> appearing rightmost in the order given. Other columns will not be reordered."
         ],
     Ascribed =

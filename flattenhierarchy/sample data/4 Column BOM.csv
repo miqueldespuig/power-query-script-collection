@@ -1,8 +1,0 @@
-﻿NodeKey,NodeName,ParentKey,ParentName
-2,Number02,1,Number01
-3,Number03,2,Number02
-4,Number04,2,Number02
-5,Number05,1,Number01
-6,Number06,5,Number05
-7,Number07,6,Number06
-8,Number08,6,Number06

@@ -1,5 +1,5 @@
 let
-    j2g =
+    Function =
         (juldate as any) as date =>
             let
                 juldatenumber = Number.From(juldate),
@@ -12,16 +12,12 @@ let
             in
                 gregdate,
     //DOCUMENTATION
-    j2gType =
-        type function (juldate as
-            (
-                type any
-                meta
-                [
+    FunctionType =
+        type function ( juldate as ( type any meta [
                     Documentation.FieldCaption = "Julian Date Value",
                     Documentation.LongDescripcion = "The value in type text or integer of a julian date"
                 ]
-            )) as date
+            ) ) as date
         meta
         [
             Documentation.Name = "Julian Date To Gregorian Date",
@@ -29,4 +25,4 @@ let
                 "Given an Oracle JD Edwards Julian date converts it to a Gregorian Calendar format"
         ]
 in
-    Value.ReplaceType(j2g, j2gType)
+    Value.ReplaceType(Function, FunctionType)
